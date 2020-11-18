@@ -32,8 +32,16 @@ class MyApp extends StatelessWidget {
               title: Text("HEY WEBVIEWS"),
             ),
             body: WebView(
-              initialUrl: "https://rexel.com/?testcid=toto",
+              // rnning on anoter device, can 't put localhost, must use the ext net interface
+              initialUrl: "http://10.0.2.2:8000",
               javascriptMode: JavascriptMode.unrestricted,
+              javascriptChannels: <JavascriptChannel>[
+                JavascriptChannel(
+                    name: 'Print',
+                    onMessageReceived: (JavascriptMessage msg) {
+                      print(msg.message);
+                    }),
+              ].toSet(),
             )));
   }
 }
