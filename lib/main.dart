@@ -78,6 +78,9 @@ class MyApp extends StatelessWidget {
                       // on the webview. JavascriptMessage is a struct defined by the webView library, to access
                       // the value of the message, check the "message" property - Here, for instance, to check the value
                       // sent we'll check msg.message.
+                      // INTERNAL 555: useful doc: https://medium.com/@mksl/flutter-talking-to-a-webview-747da85a0815
+                      // CAUTION: in the article above, they mention it's a "developer preview feature" - don't get stressed
+                      // the article is from 2019... JavascriptChannel is now a production feature, no worries.
                       analytics.setCurrentScreen(screenName: msg.message);
                       print(msg.message);
                     }),
